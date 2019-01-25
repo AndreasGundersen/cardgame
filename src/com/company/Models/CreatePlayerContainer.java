@@ -6,15 +6,15 @@ import java.util.Date;
 public class CreatePlayerContainer {
     private String name, username, email, password;
     private Date birthday;
-    private int id;
 
-    public CreatePlayerContainer(String name, String username, String email, String password, Date birthday, int id) {
+
+    public CreatePlayerContainer(String name, String username, String email, String password, Date birthday) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.birthday = birthday;
-        this.id = id;
+
     }
 
     public String getName() {
@@ -37,9 +37,6 @@ public class CreatePlayerContainer {
         return birthday;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -61,7 +58,5 @@ public class CreatePlayerContainer {
         this.birthday = birthday;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 }
