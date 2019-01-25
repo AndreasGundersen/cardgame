@@ -11,9 +11,9 @@ public class DAL {
 
     public static Connection getConnection() throws SQLException {
 
-        String url = "jdbc:mysql://localhost/card_engine_TEST";
-        String user = "test1";
-        String password = "Start123";
+        String url = "jdbc:mysql://localhost/card_engine_test";
+        String user = "root";
+        String password = "";
 
         Connection connect = null;
         connect = DriverManager.getConnection(url, user, password);
@@ -26,9 +26,21 @@ public class DAL {
     public void insertPlayerIntoDB(CreatePlayerContainer newPlayer) {
         try {
             Connection connection = getConnection();
-            Statement statement = connection.createStatement();
-            String sqlquery = "INSERT INTO users("+newPlayer.getName()+","+newPlayer.getUsername()+","+newPlayer.getEmail()+","+newPlayer.getBirthday()+","+newPlayer.getPassword()+")";
-            ResultSet rs = statement.executeQuery(sqlquery);
+
+            String sqlquery = " insert into users (name, username, email, birthday, password)"
+                    + " values (?, ?, ?, ?, ?)";
+
+            // create the mysql insert preparedstatement
+            PreparedStatement preparedStmt = connection.prepareStatement(sqlquery);
+            preparedStmt.setString (1, newPlayer.getName());
+            preparedStmt.setString (2, newPlayer.getUsername());
+            preparedStmt.setString   (3, newPlayer.getEmail());
+            preparedStmt.setString(4, newPlayer.getBirthday());
+            preparedStmt.setString    (5, newPlayer.getPassword());
+
+            // execute the preparedstatement
+            preparedStmt.execute();
+
             connection.close();
         }
         catch(SQLException e) {

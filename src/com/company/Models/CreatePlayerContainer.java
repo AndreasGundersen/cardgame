@@ -4,11 +4,10 @@ package com.company.Models;
 import java.util.Date;
 
 public class CreatePlayerContainer {
-    private String name, username, email, password;
-    private Date birthday;
+    private String name, username, email, password, birthday;
 
 
-    public CreatePlayerContainer(String name, String username, String email, String password, Date birthday) {
+    public CreatePlayerContainer(String name, String username, String email, String birthday, String password) {
         this.name = name;
         this.username = username;
         this.email = email;
@@ -33,7 +32,7 @@ public class CreatePlayerContainer {
         return password;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
@@ -54,7 +53,7 @@ public class CreatePlayerContainer {
         this.password = password;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
