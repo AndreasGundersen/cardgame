@@ -3,6 +3,12 @@ package com.company.Models;
 
 import java.util.Date;
 
+/**
+ *
+ * Created by Mark & Gunder on 25/01/2019
+ */
+// This class is a container class which contains all the needed information for a new Player
+// with getters and setters.
 public class CreatePlayerContainer {
     private String name, username, email, password, birthday;
 
